@@ -85,7 +85,7 @@ namespace CRUDAPP.Repository
 
             }
         }
-        public async Task<company> GetCompanyByEmployeeId(int id)
+        public async Task<company> GetCompanyByEmployeeId(int id) //stored procedure
         {
             var procedureName = "ShowCompanyForProvidedEmployeeId";
             var parameters = new DynamicParameters();
