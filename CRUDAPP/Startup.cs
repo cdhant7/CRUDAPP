@@ -30,7 +30,7 @@ namespace CRUDAPP
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton <DapperContext>();
-            services.AddScoped<IOrdersRepository,OrdersRepository>(); 
+            services.AddScoped<IEmployeeRepository,EmployeeRepository>(); 
             services.AddControllers();
             
            
