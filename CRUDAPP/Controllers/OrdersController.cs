@@ -36,12 +36,29 @@ namespace CRUDAPP.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        [HttpGet("multipleorder")] // this is for executing multiple mapping
+        [HttpGet("multipleorder")] // this is for executing multiple mapping with multiple objects
         public async Task<ActionResult<List<Order>>>GetOrderwithstores()
         {
             try
             {
                 var orders = await _OrderRepo.GetOrderwithstores();
+                if (orders == null || !orders.Any())
+                    return NotFound();
+
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("dynamicparameter")] // this is for executing multiple mapping with multiple objects
+        public async Task<ActionResult<List<Order>>>GetDynamicParameter()
+        {
+            try
+            {
+                var orders = await _OrderRepo.GetDynamicParameter();
                 if (orders == null || !orders.Any())
                     return NotFound();
 

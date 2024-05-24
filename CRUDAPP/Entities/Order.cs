@@ -10,10 +10,11 @@ namespace CRUDAPP.Entities
 
         public string status { get; set; }
 
-        //  public int CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
         public Store Store { get; internal set; }
+        public int StoreId { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace CRUDAPP.Contracts
     public interface IOrdersRepository
     {
         public Task<List<Order>>GetOrderByMultiMapping();
-        public Task<List<Order>> GetOrderwithstores();
+        public Task<List<Order>>GetOrderwithstores();
+        public Task<List<Order>>GetDynamicParameter();
     }
 }

@@ -89,6 +89,30 @@ namespace CRUDAPP.Repository
                 return orders.ToList();
             }
         }
+
+        public async Task<List<Order>> GetDynamicParameter()
+        {
+            var query = "SELECT * FROM Orders WHERE OrderId = @Id AND Status = @Status";
+
+            var parameters = new Dictionary<string, object>
+                {
+                    { "Id", 2 },
+                    { "Status", "pending" }
+                };
+
+                using (var connection = _context.CreateConnection())
+                {
+                    var dynamicParameters = new DynamicParameters();
+                    foreach (var param in parameters)
+                    {
+                        dynamicParameters.Add(param.Key, param.Value);
+                    }
+
+                    var orders = await connection.QueryAsync<Order>(query, dynamicParameters);
+                    return orders.ToList();
+                }
+        }
+
     }
 }
 
