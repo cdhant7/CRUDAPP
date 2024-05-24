@@ -1,5 +1,6 @@
 using CRUDAPP.Context;
 using CRUDAPP.Contracts;
+using CRUDAPP.Controllers;
 using CRUDAPP.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,8 +30,9 @@ namespace CRUDAPP
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton <DapperContext>();
-            services.AddScoped<ICompanyRepository,CompanyRepository>(); 
+            services.AddScoped<IOrdersRepository,OrdersRepository>(); 
             services.AddControllers();
+            
            
            
         }
