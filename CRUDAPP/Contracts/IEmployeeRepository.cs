@@ -8,5 +8,6 @@ namespace CRUDAPP.Contracts
     public interface IEmployeeRepository
     {
         public Task<List<Employee>>GetEmployee();
+        public Task<List<Employee>>GetEmployeebyMultimapping();
     }
 }

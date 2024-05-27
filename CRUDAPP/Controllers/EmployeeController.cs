@@ -37,6 +37,23 @@ namespace CRUDAPP.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("multimap")]
+        public async Task<ActionResult<List<Employee>>>GetEmployeeByMultimapping()
+        {
+            try
+            {
+                var orders = await _OrderRepo.GetEmployee();
+                if (orders == null || !orders.Any())
+                    return NotFound();
+
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
 

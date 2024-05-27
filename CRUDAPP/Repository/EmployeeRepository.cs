@@ -34,6 +34,11 @@ namespace CRUDAPP.Repository
             }
             
         }
+
+        public Task<List<Employee>>GetEmployeebyMultimapping()
+        {
+            var query = " ";
+        }
     }
 }
 
